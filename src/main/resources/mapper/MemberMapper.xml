@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ne.abc.member.mapper.MemberMapper">
+
+	<!-- memberSignIn -->
+	<select id="memberSignIn" resultType="MemberDTO">
+		SELECT 
+			*
+		FROM 
+			member
+		WHERE
+			email = #{username}
+	</select>
+	
+	<!-- signUp -->
+	<insert id="signUp">
+		INSERT 
+		INTO 
+			member(
+				email
+				, password
+				, auth
+			)
+		VALUES(
+			#{email}
+			, #{password}
+			, #{auth}
+		)
+	</insert>
+	
+</mapper>
